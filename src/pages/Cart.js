@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
+  const navigate = useNavigate()
   const cart=useSelector(state=>state)
   const dispatch=useDispatch()
 
@@ -18,14 +20,21 @@ const Cart = () => {
         </div>
     </header>
     <div className='text-center py-4'>
-        {total < 1 ? <span className='text-md font-bold uppercase text-slate-600'>Cart is Empty</span>:(
+        {total < 1 ? (
+          <>
+          <span className='text-md font-bold uppercase text-slate-600'>Cart is Empty</span>
+          <div className='w-full text-center '>
+                   <button className=' bg-slate-700 text-white font-serif font-bold text-sm py-3 px-3 my-5 rounded-md shadow-lg' onClick={()=>{navigate("/products")}}>Continue Shopping</button>
+             </div>   
+          </>
+        ):(
           <div className='flex flex-col justify-center items-center'>
             <span className='text-md font-bold uppercase  text-slate-600'>Total : {total}</span>
-            <button className='px-3 mt-3 text-md font-bold font-serif border-2 border-slate-200 showdow-sm py-2 hover:bg-slate-300  transition-all duration-700 ease-linear'>Proceed to Checkout</button>
+            <button className='px-3 mt-3 text-md font-bold font-serif  bg-slate-700 text-white showdow-sm py-2 hover:bg-slate-300  transition-all duration-700 ease-linear'>Proceed to Checkout</button>
           </div>
         )}
     </div>
-    <div className=' w-full border-2 border-zinc-300 min-h-[85vh] px-3 py-3 flex flex-col justify-start items-center '>
+    <div className=' w-full border-2 border-zinc-300 min-h-[85vh] px-3 py-1 flex flex-col justify-start items-center '>
       {cart.map(item=>{
         return (
           <>
@@ -38,15 +47,15 @@ const Cart = () => {
             </div>
           <div className='flex-flex-col justify-center items-center w-full'>
           <div className='flex  justify-around items-start  w-full  py-3 min-h-[10vh] '>
-              <button className='border-2 border-zinc-300 px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch({type:"INCREMENT",payload:item})}>+</button>
-              <button className='border-2 border-zinc-300 px-2 py-2 rounded-md  text-sm mb-2 shadow-md font-bold' onClick={()=>{
+              <button className=' bg-slate-700 text-white px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch({type:"INCREMENT",payload:item})}>+</button>
+              <button className=' bg-slate-700 text-white px-2 py-2 rounded-md  text-sm mb-2 shadow-md font-bold' onClick={()=>{
                        if(item.quantity>1){
                            dispatch({type:"DECREMENT",payload:item})
                        }else{
                             dispatch({type:"REMOVE_FROM_CART",payload:item})
                        }
                    }}>-</button>
-              <button className='border-2 border-zinc-300 px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch({type:"REMOVE_FROM_CART",payload:item})}>Remove</button>
+              <button className=' bg-slate-700 text-white px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch({type:"REMOVE_FROM_CART",payload:item})}>Remove</button>
             </div>
             <div className='w-full flex flex-col justify-center items-center px-3'>
             <span className='text-sm font-semibold font-serif'>Price {item.price}</span>           
@@ -55,12 +64,14 @@ const Cart = () => {
             </div>
           </div>
           </div>
-           </div>          
+           </div>                 
           </>         
         ) 
       })}
     </div>
-   
+    <div className='w-full text-center '>
+                   <button className=' bg-slate-700 text-white font-serif font-bold text-sm py-3 px-3 my-5 rounded-md shadow-lg' onClick={()=>{navigate("/products")}}>Continue Shopping</button>
+             </div>   
    </>
   )
 }

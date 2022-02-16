@@ -41,7 +41,7 @@ const Products = () => {
                     activeColor="#ffd700"
                   />                  
                 </div>
-                <button className="py-2 px-2 rounded-md  border-2 border-slate-200 mb-3  drop-shadow-xl text-sm mt-4 ont-serif font-bold " onClick={()=>dispatch({type:"ADD_TO_CART",payload:item})}>Add to Cart</button>
+                <button className="py-2 px-2 rounded-md  bg-slate-600 text-white mb-3  drop-shadow-xl text-sm mt-4 ont-serif font-bold " onClick={()=>dispatch({type:"ADD_TO_CART",payload:item})}>Add to Cart</button>
               </div>
             </>
           );
