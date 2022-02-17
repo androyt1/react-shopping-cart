@@ -4,7 +4,9 @@ import { AiOutlineShoppingCart,AiOutlineMenu,AiOutlineClose } from "react-icons/
 import { useSelector } from 'react-redux';
 import { GiShirt} from "react-icons/gi";
 
+
 const Navbar = () => {
+    
 
     const cart=useSelector(state=>state)
     const count=cart.length
@@ -33,7 +35,7 @@ const Navbar = () => {
     <>    
     <nav className={`flex justify-between items-center w-full px-3 h-[70px] bg-transparent fixed top-0 transition-all duration-1000 ease-linear z-20 ${scroll ? 'bg-[#FA0D3D]':'bg-[#fa0d3c94]'}`}>
         
-        <div onClick={()=>closeMenu()} className='flex flex-row justify-center items-center'><span className={`text-xl md:text-2xl font-bold font-serif transition-all duration-700 ease-linear  ${scroll ?'text-white':'text-slate-50'}`}><Link to="/">Klot </Link></span> <GiShirt className='text-3xl ml-2 text-white'/>
+        <div onClick={()=>closeMenu()} className='flex flex-row justify-center items-center'><span className={`text-xl md:text-2xl font-bold font-serif transition-all duration-700 ease-linear  ${scroll ?'text-white':'text-slate-50'}`}><Link to="/" className=' flex flex-row justify-center items-center'>Klot  <GiShirt className='text-3xl ml-2 text-white'/></Link></span> 
         </div>
 
         
