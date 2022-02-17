@@ -47,9 +47,9 @@ const Details = () => {
                   <p className='font-serif font-semibold mt-1'>Instock {item.numInStock > 1 ? <span className='text-green-600'>Available</span>: <span className='text-red-600'>Out of Stock</span>}</p>
                   
                   <div className='w-full mt-4 flex flex-col rounded-md justify-center items-center'>
-                  <button className='py-2 px-3  bg-slate-700 text-white shadow-md mb-5 drop-shadow-xl hover:bg-zinc-700 hover:text-zinc-50 transition-all duration-700 ease-linear rounded-sm ont-serif font-bold text-sm' onClick={()=>dispatch(add(item))}>Add to Cart</button>
+                  <button className='py-2 px-3  bg-[#FA0D3D] text-white shadow-md mb-5 drop-shadow-xl hover:bg-zinc-700 hover:text-zinc-50 transition-all duration-700 ease-linear rounded-sm ont-serif font-bold text-sm' onClick={()=>dispatch(add(item))}>Add to Cart</button>
 
-                  <button onClick={()=>{navigate("/products")}} className='py-2 px-3 shadow-md   bg-slate-700 text-white mb-5 rounded-md drop-shadow-xl hover:bg-zinc-700 hover:text-zinc-50 transition-all duration-700 ease-linear font-serif font-bold text-sm' >Continue Shopping</button>
+                  <button onClick={()=>{navigate("/products")}} className='py-2 px-3 shadow-md   bg-[#FA0D3D] text-white mb-5 rounded-md drop-shadow-xl hover:bg-zinc-700 hover:text-zinc-50 transition-all duration-700 ease-linear font-serif font-bold text-sm' >Continue Shopping</button>
                   </div>
 
                  

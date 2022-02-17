@@ -19,23 +19,23 @@ const Products = () => {
     <>
       <header>
         <div className="w-full px-3 h-[15vh] flex flex-col justify-end items-center  mt-10">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-serif text-slate-800 mb-5">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-serif text-slate-500 mb-5">
             Products
           </h2>
         </div>
       </header>
       <div className='flex justify-center items-center w-full py-6 px-8'>
-            <input type="text" className={`px-3 py-2 border-2 border-slate-300 focus:outline-none mr-2 w-full md:w-1/2 transition-all duration-700 ease-linear `} placeholder='Search Clothes' onChange={(event)=>{setSearch(event.target.value)}}/>
+            <input type="text" className={`px-3 py-2 border-2 border-[#fa0d3ca9] focus:outline-none mr-2 w-full md:w-1/2 transition-all duration-700 ease-linear `} placeholder='Search Clothes' onChange={(event)=>{setSearch(event.target.value)}}/>
 
-            <BsSearch className={`text-xl md:text-3xl cursor-pointer font-bold  ml-2 transition-all duration-700 ease-linear `}/>
+            <BsSearch className={`text-4xl md:text-4xl cursor-pointer font-bold  ml-2 transition-all duration-700 ease-linear text-[#fa0d3ca9]`}/>
         </div>
 
-      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-white"> 
+      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4  bg-[#fa0d3c60]"> 
         {data.filter(product => product.name.toLowerCase().includes(search.toLowerCase())).map((item,key) => {
           item.quantity = 1;
           return (
             <div key={key}>
-              <div  className="w-full flex flex-col justify-center items-center px-3 shadow-sm border-2 border-zinc-200 py-3 bg-white" >
+              <div  className="w-full flex flex-col justify-center items-center px-3 shadow-sm  py-3 bg-white" >
                 <span className="block py-2 font-serif font-bold text-sm">{item.name}</span>
                 <img src={item.image} alt="" className="cursor-pointer" onClick={()=>{navigate(`/details/${item.id}`)}} />
                 <span className="italic text-md text-blue-600 py-2">
@@ -50,7 +50,7 @@ const Products = () => {
                     activeColor="#ffd700"
                   />                  
                 </div>
-                <button className="py-2 px-2 rounded-md  bg-slate-600 text-white mb-3  drop-shadow-xl text-sm mt-4 ont-serif font-bold " onClick={()=>dispatch(add(item))}>Add to Cart</button>
+                <button className="py-2 px-2 rounded-md  bg-[#FA0D3D] text-white mb-3  drop-shadow-xl text-sm mt-4 ont-serif font-bold " onClick={()=>dispatch(add(item))}>Add to Cart</button>
               </div>
             </div>
           );
