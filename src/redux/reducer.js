@@ -1,7 +1,7 @@
-import { type } from "@testing-library/user-event/dist/type"
+import {ADD_TO_CART,REMOVE_FROM_CART,INCREMENT,DECREMENT} from './type'
 
 export const reducer=(cart=[],action)=>{
-   if(action.type==="ADD_TO_CART"){
+   if(action.type===ADD_TO_CART){
         let prod=cart.filter((item)=>item.id===action.payload.id)
         if(prod.length < 1){
             return [...cart,action.payload]
@@ -9,10 +9,10 @@ export const reducer=(cart=[],action)=>{
             return cart
         }
    }
-   if(action.type==="REMOVE_FROM_CART"){
+   if(action.type===REMOVE_FROM_CART){
         return cart.filter((item)=>item.id !== action.payload.id)
    }
-   if(action.type==="INCREMENT"){
+   if(action.type===INCREMENT){
         let ditem=cart.filter((item)=>item.id === action.payload.id)
         if(ditem.length > 0){
             return cart.map((item)=>{
@@ -24,7 +24,7 @@ export const reducer=(cart=[],action)=>{
             })
         }
    }
-   if(action.type==="DECREMENT"){
+   if(action.type===DECREMENT){
         let mitem=cart.filter((item)=>item.id === action.payload.id)
         if(mitem.length > 0){
             return cart.map((item)=>{

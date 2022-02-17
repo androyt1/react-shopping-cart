@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { increase ,decrease,remove} from '../redux/action'
 
 const Cart = () => {
   const navigate = useNavigate()
@@ -35,10 +36,10 @@ const Cart = () => {
         )}
     </div>
     <div className=' w-full border-2 border-zinc-300 min-h-[85vh] px-3 py-1 flex flex-col justify-start items-center '>
-      {cart.map(item=>{
+      {cart.map((item,key)=>{
         return (
-          <>
-         <div className='flex flex-col justify-center items-center mb-8 border-2 border-slate-100 py-4 shadow-sm'>
+          <div key={key}>
+         <div  className='flex flex-col justify-center items-center mb-8 border-2 border-slate-100 py-4 shadow-sm'>
          <span className='text-sm font-serif font-semibold py-3'>{item.name}</span>
          <div key={item.id} className='flex flex-row justify-center items-center '>
             <div className='w-full h-full flex flex-col justify-center items-center'>
@@ -47,15 +48,15 @@ const Cart = () => {
             </div>
           <div className='flex-flex-col justify-center items-center w-full'>
           <div className='flex  justify-around items-start  w-full  py-3 min-h-[10vh] '>
-              <button className=' bg-slate-700 text-white px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch({type:"INCREMENT",payload:item})}>+</button>
+              <button className=' bg-slate-700 text-white px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch(increase(item))}>+</button>
               <button className=' bg-slate-700 text-white px-2 py-2 rounded-md  text-sm mb-2 shadow-md font-bold' onClick={()=>{
                        if(item.quantity>1){
-                           dispatch({type:"DECREMENT",payload:item})
+                           dispatch(decrease(item))
                        }else{
-                            dispatch({type:"REMOVE_FROM_CART",payload:item})
+                            dispatch(remove(item))
                        }
                    }}>-</button>
-              <button className=' bg-slate-700 text-white px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch({type:"REMOVE_FROM_CART",payload:item})}>Remove</button>
+              <button className=' bg-slate-700 text-white px-2 py-2 rounded-md text-sm mb-2 shadow-md font-bold' onClick={()=>dispatch(remove(item))}>Remove</button>
             </div>
             <div className='w-full flex flex-col justify-center items-center px-3'>
             <span className='text-sm font-semibold font-serif'>Price {item.price}</span>           
@@ -65,7 +66,7 @@ const Cart = () => {
           </div>
           </div>
            </div>                 
-          </>         
+          </div>         
         ) 
       })}
     </div>

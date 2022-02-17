@@ -3,6 +3,7 @@ import { data } from "../Data";
 import ReactStars from "react-rating-stars-component";
 import { useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
+import {add} from '../redux/action'
 
 const Products = () => {
 
@@ -22,11 +23,11 @@ const Products = () => {
         </div>
       </header>
       <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-slate-200">
-        {data.map((item) => {
+        {data.map((item,key) => {
           item.quantity = 1;
           return (
-            <>
-              <div key={item.id} className="w-full flex flex-col justify-center items-center px-3 shadow-sm border-2 border-zinc-200 py-3 bg-white" key={item.id}>
+            <div key={key}>
+              <div  className="w-full flex flex-col justify-center items-center px-3 shadow-sm border-2 border-zinc-200 py-3 bg-white" >
                 <span className="block py-2 font-serif font-bold text-sm">{item.name}</span>
                 <img src={item.image} alt="" className="cursor-pointer" onClick={()=>{navigate(`/details/${item.id}`)}} />
                 <span className="italic text-md text-blue-600 py-2">
@@ -35,15 +36,15 @@ const Products = () => {
                 <span className="font-serif font-bold text-sm">Category {item.category}</span>
                 <div className="flex justify-center items-center">
                  
-                  <ReactStars
+                  <ReactStars 
                     count={item.rating}                   
                     size={24}
                     activeColor="#ffd700"
                   />                  
                 </div>
-                <button className="py-2 px-2 rounded-md  bg-slate-600 text-white mb-3  drop-shadow-xl text-sm mt-4 ont-serif font-bold " onClick={()=>dispatch({type:"ADD_TO_CART",payload:item})}>Add to Cart</button>
+                <button className="py-2 px-2 rounded-md  bg-slate-600 text-white mb-3  drop-shadow-xl text-sm mt-4 ont-serif font-bold " onClick={()=>dispatch(add(item))}>Add to Cart</button>
               </div>
-            </>
+            </div>
           );
         })}
       </div>
