@@ -20,9 +20,9 @@ const Details = () => {
         <div className='w-full mt-10 px-3 h-[15vh] flex flex-col justify-end items-center '>
         <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold font-serif text-slate-800 mb-5'>Details</h2>
         </div>
-        <div className='w-full flex flex-col md:flex-row justify-center items-center'>
+        <div className='w-full flex flex-col md:flex-row justify-center items-center bg-white'>
             <div className='w-full h-full '>
-                <img src={item.image} alt="" className="w-full h-full mt-8" />
+                <img src={item.image} alt="" className="w-full h-full mt-4" />
             </div>
             <div className='w-full h-full flex flex-col justify-center items-center  px-4 py-3'>
                 <h3 className='text-xl font-semibold font-serif'>{item.name}</h3>
