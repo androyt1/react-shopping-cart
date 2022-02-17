@@ -1,12 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
 import { data } from "../Data";
 import ReactStars from "react-rating-stars-component";
 import { useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import {add} from '../redux/action'
-
+import { BsSearch } from "react-icons/bs";
 const Products = () => {
 
+    const[search,setSearch]=useState('')
+    
     const cart=useSelector(state=>state)
     const dispatch=useDispatch()
     console.log(cart)
@@ -22,8 +24,14 @@ const Products = () => {
           </h2>
         </div>
       </header>
-      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-[#fcde67]">
-        {data.map((item,key) => {
+      <div className='flex justify-center items-center w-full py-6 px-8'>
+            <input type="text" className={`px-3 py-2 border-2 border-slate-300 focus:outline-none mr-2 w-full md:w-1/2 transition-all duration-700 ease-linear `} placeholder='Search Clothes' onChange={(event)=>{setSearch(event.target.value)}}/>
+
+            <BsSearch className={`text-xl md:text-3xl cursor-pointer font-bold  ml-2 transition-all duration-700 ease-linear `}/>
+        </div>
+
+      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-[#fcde67]"> 
+        {data.filter(product => product.name.toLowerCase().includes(search.toLowerCase())).map((item,key) => {
           item.quantity = 1;
           return (
             <div key={key}>
