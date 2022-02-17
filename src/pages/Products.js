@@ -30,7 +30,7 @@ const Products = () => {
             <BsSearch className={`text-xl md:text-3xl cursor-pointer font-bold  ml-2 transition-all duration-700 ease-linear `}/>
         </div>
 
-      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-[#fcde67]"> 
+      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-white"> 
         {data.filter(product => product.name.toLowerCase().includes(search.toLowerCase())).map((item,key) => {
           item.quantity = 1;
           return (
