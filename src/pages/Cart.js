@@ -35,7 +35,7 @@ const Cart = () => {
           </div>
         )}
     </div>
-    <div className=' w-full border-2 border-zinc-300 min-h-[85vh] px-3 py-1 flex flex-col justify-start items-center '>
+    <div className=' w-full border-2 border-zinc-300  px-3 py-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 '>
       {cart.map((item,key)=>{
         return (
           <div key={key}>

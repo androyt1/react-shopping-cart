@@ -22,7 +22,7 @@ const Products = () => {
           </h2>
         </div>
       </header>
-      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-slate-200">
+      <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  gap-4 bg-[#fcde67]">
         {data.map((item,key) => {
           item.quantity = 1;
           return (

@@ -42,9 +42,9 @@ const Navbar = () => {
 
         <ul className='hidden md:flex'>
             <li className={`ml-2 transition-all duration-700 ease-linear ${scroll ? 'text-white':' text-slate-800'}`}><Link to='/'>Home</Link></li>
-            <li className={`ml-2 transition-all duration-700 ease-linear ${scroll ? 'text-white':' text-slate-800'}`}><Link to='/about'>About</Link></li>
+           
             <li className={`ml-2 transition-all duration-700 ease-linear ${scroll ? 'text-white':' text-slate-800'}`}><Link to='/products'>Products</Link></li>
-            <li className={`ml-2 transition-all duration-700 ease-linear ${scroll ? 'text-white':' text-slate-800'}`}><Link to='/contact'>Contact</Link></li>
+           
            <div className=''>
                <Link to="/cart" className='flex justify-center items-center ml-4'>
                <span className={`px-2 transition-all duration-700 ease-linear  ${scroll ? 'bg-white text-slate-700':' bg-slate-800 text-white'}`}>{cart.length}</span>
@@ -68,9 +68,9 @@ const Navbar = () => {
     <nav className={`flex flex-col justify-center items-center md:hidden w-[50vw] fixed top-[70px] h-[calc(100vh-70px)] bg-slate-800 z-10 right-0 transition-all duration-700 ease-linear ${open ? 'translate-x-0':'translate-x-[100vw]'}`}>
         <ul>
             <li className='text-blue-100 mb-4 block hover:bg-slate-500 w-full px-3 py-2 transition-all duration-700 ease-linear' onClick={()=>closeMenu()}><Link to='/'>Home</Link></li>
-            <li className='text-blue-100 mb-4 block hover:bg-slate-500 w-full px-3 py-2 transition-all duration-700 ease-linear' onClick={()=>closeMenu()}><Link to='/about'>About</Link></li>
+            
             <li className='text-blue-100 mb-4 block hover:bg-slate-500 w-full px-3 py-2 transition-all duration-700 ease-linear' onClick={()=>closeMenu()}><Link to='/products'>Products</Link></li>
-            <li className='text-blue-100 mb-4 block hover:bg-slate-500 w-full px-3 py-2 transition-all duration-700 ease-linear' onClick={()=>closeMenu()}><Link to='/contact'>Contact</Link></li>
+           
            
         </ul>
     </nav>   
